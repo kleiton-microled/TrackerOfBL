@@ -8,6 +8,6 @@ namespace TrakingOfBl.ws
 {
     public interface ILogComexApi
     {
-        public Task ApiLogComex(string url, string apiKey, NewTrakingRegister trakingRegister);
+        public Task ApiLogComex(string url, string apiKey, string trakingRegister);
     }
 }

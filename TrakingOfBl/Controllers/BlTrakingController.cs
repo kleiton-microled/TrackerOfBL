@@ -39,24 +39,24 @@ namespace TrakingOfBl.Controllers
             list = _blTrakingService.FindAllBls();
             if (list == null) return BadRequest("Lista Vazia");
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].BlTOken == null)
-                {
-                    fields = new {
-                        bl_number = list[i].BlNUmber,
-                        reference = "",
-                        consignee_cnpj = "58138058003100",
-                        emails = "kleiton@microled.com.br",
-                        shipowner = "185",
-                        custom_fields = ""
-                    };
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    if (list[i].BlTOken == null)
+            //    {
+            //        fields = new {
+            //            bl_number = list[i].BlNUmber,
+            //            reference = "",
+            //            consignee_cnpj = "58138058003100",
+            //            emails = "kleiton@microled.com.br",
+            //            shipowner = "185"
+            //        };
 
-                    var trakingRegister = new NewTrakingRegister(JsonConvert.SerializeObject(fields));
+            //        var jsonString = JsonConvert.SerializeObject(fields);
+            //        // var trakingRegister = new NewTrakingRegister(jsonString);
                     
-                    _logComexApi.ApiLogComex(Url, apiKey, trakingRegister);
-                }
-            }
+            //      var responseRetorno =  _logComexApi.ApiLogComex(Url, apiKey, jsonString);
+            //    }
+            //}
 
             return Ok(list);
         }

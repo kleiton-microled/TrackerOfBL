@@ -7,26 +7,26 @@ using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using TrakingOfBl.Model;
+using System.Text;
 
 namespace TrakingOfBl.ws
 {
     public class LogComexApi : ILogComexApi
     {
         
-        public async Task ApiLogComex(string url, string apiKey, NewTrakingRegister newTrakingRegister)
+        public async Task ApiLogComex(string url, string apiKey, string jsonString)
         {
             string tokenResponse = "";
-            var content = new StringContent(newTrakingRegister.ToString(), System.Text.Encoding.Default, "application/json");
+            StringContent content = new StringContent(jsonString, Encoding.UTF8, "application/json");
             var baseAddress = new Uri(url);
-            using (var cliente = new HttpClient { BaseAddress = baseAddress})
-            {
-                cliente.DefaultRequestHeaders.TryAddWithoutValidation("x-api-key", apiKey);
-                using (var response = await cliente.PostAsync("rastreamento/maritimo/novo", content))
-                {
-                    string responseData = await response.Content.ReadAsStringAsync();
-                    tokenResponse = responseData;
-                }
-            }
+
+            HttpClient cliente = new HttpClient();
+            cliente.DefaultRequestHeaders.TryAddWithoutValidation("x-api-key", apiKey);
+            var response =  await cliente.PostAsync(baseAddress + "rastreamento/maritimo/novo", content);
+
+            string tokenGerado = await response.Content.ReadAsStringAsync();
+
+            
         }
     }
 }
