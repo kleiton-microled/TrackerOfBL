@@ -17,7 +17,8 @@ namespace TrakingOfBl.Services.Implementations
 
         public List<BlTraking> FindAllBls()
         {
-            return _context.blTrakings.ToList();
+            var listBls = _context.blTrakings.ToList();
+            return listBls;
         }
     }
 }

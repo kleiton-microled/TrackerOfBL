@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 namespace TrakingOfBl.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/bltraking")]
     public class BlTrakingController : ControllerBase
     {
         private readonly ILogger<BlTrakingController> _logger;
@@ -43,7 +43,8 @@ namespace TrakingOfBl.Controllers
             //{
             //    if (list[i].BlTOken == null)
             //    {
-            //        fields = new {
+            //        fields = new
+            //        {
             //            bl_number = list[i].BlNUmber,
             //            reference = "",
             //            consignee_cnpj = "58138058003100",
@@ -53,8 +54,8 @@ namespace TrakingOfBl.Controllers
 
             //        var jsonString = JsonConvert.SerializeObject(fields);
             //        // var trakingRegister = new NewTrakingRegister(jsonString);
-                    
-            //      var responseRetorno =  _logComexApi.ApiLogComex(Url, apiKey, jsonString);
+
+            //        var responseRetorno = _logComexApi.ApiLogComex(Url, apiKey, jsonString);
             //    }
             //}
 
