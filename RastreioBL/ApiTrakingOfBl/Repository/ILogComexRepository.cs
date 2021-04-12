@@ -7,6 +7,6 @@ namespace ApiTrakingOfBl.Repository
 {
     public interface ILogComexRepository
     {
-        public Task ApiLogComex(string url, string apiKey, string trakingRegister);
+        public Task<string> ApiLogComex(string url, string apiKey, string trakingRegister);
     }
 }

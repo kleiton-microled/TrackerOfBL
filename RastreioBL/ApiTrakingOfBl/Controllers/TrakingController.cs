@@ -26,10 +26,12 @@ namespace ApiTrakingOfBl.Controllers
             _logComexBusiness = logComexBusiness;
         }
         [HttpGet]
+        [Route("listar")]
         public IActionResult ListarBls()
         {
             List<BL> listBls = new List<BL>();
             listBls = _bLBusiness.ListarBls();
+
 
             return Ok(listBls);
         }
@@ -42,13 +44,19 @@ namespace ApiTrakingOfBl.Controllers
             {
                 if (item.BlTOken == null)
                 {
-                   bl = new BL { BlNUmber = item.BlNUmber };
-                   _bLBusiness.IniciarRastreioLogComex(bl); 
+                   bl = new BL { BlNUmber = item.BlNUmber, Id = item.Id, BlTOken = item.BlTOken, PartnerIdCustomer = item.PartnerIdCustomer};
+                    var token = _bLBusiness.IniciarRastreioLogComex(bl);
+                    if (token != "")
+                    {
+                        bl.BlTOken = token;
+                       CadastrarTokenBl(bl);
+                    } 
                 }
             }
             return Ok();
         }
-        [HttpPost]
+        [HttpPut]
+        [Route("cadastrar/token")]
         public IActionResult CadastrarTokenBl([FromBody] BL bl)
         {
             if (bl == null) return BadRequest("Requisicao invalida");

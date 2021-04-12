@@ -6,11 +6,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiTrakingOfBl.Business.Implementations
+namespace ApiTrakingOfBl.Repository.Implementations
 {
     public class LogComexRepositoryImplementation : ILogComexRepository
     {
-        public async Task ApiLogComex(string url, string apiKey, string trakingRegister)
+        public async Task<string> ApiLogComex(string url, string apiKey, string trakingRegister)
         {
             string tokenResponse = "";
             StringContent content = new StringContent(trakingRegister, Encoding.UTF8, "application/json");
@@ -21,6 +21,8 @@ namespace ApiTrakingOfBl.Business.Implementations
             var response = await cliente.PostAsync(baseAddress + "rastreamento/maritimo/novo", content);
 
             string tokenGerado = await response.Content.ReadAsStringAsync();
+
+            return tokenGerado;
         }
     }
 }

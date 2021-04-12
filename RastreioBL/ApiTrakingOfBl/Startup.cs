@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiTrakingOfBl.Business;
 using ApiTrakingOfBl.Business.Implementations;
 using ApiTrakingOfBl.Repository;
+using ApiTrakingOfBl.Repository.Implementations;
 
 namespace ApiTrakingOfBl
 {

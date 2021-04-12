@@ -1,4 +1,5 @@
-﻿using ApiTrakingOfBl.Model;
+﻿using ApiTrakingOfBl.Business.ObjectValues;
+using ApiTrakingOfBl.Model;
 using ApiTrakingOfBl.Model.Context;
 using ApiTrakingOfBl.Repository;
 using Newtonsoft.Json;
@@ -45,7 +46,7 @@ namespace ApiTrakingOfBl.Business.Implementations
                 reference = "",
                 consignee_cnpj = "58138058003100",
                 emails = "kleiton@microled.com.br",
-                shipowner = "185"
+                shipowner = EnumShipOwner.HAMBURGSUD
             };
             var jsonString = JsonConvert.SerializeObject(campos);
 
@@ -54,13 +55,12 @@ namespace ApiTrakingOfBl.Business.Implementations
 
             if (response.Result.Contains("{\"token\":\""))
             {
-
+                token = response.Result;
             }
 
-            return response.Result.ToString();
+            return token;
 
         }
-
         public List<BL> ListarBls()
         {
             return _context.Bls.ToList();
