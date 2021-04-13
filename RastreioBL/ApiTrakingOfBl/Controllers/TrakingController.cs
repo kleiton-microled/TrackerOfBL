@@ -42,7 +42,7 @@ namespace ApiTrakingOfBl.Controllers
             var listaDeBls =  _bLBusiness.ListarBls();
             foreach (var item in listaDeBls)
             {
-                if (item.BlTOken == null)
+                if (item.BlTOken == null || item.BlTOken == "")
                 {
                    bl = new BL { BlNUmber = item.BlNUmber, Id = item.Id, BlTOken = item.BlTOken, PartnerIdCustomer = item.PartnerIdCustomer};
                     var token = _bLBusiness.IniciarRastreioLogComex(bl);
@@ -50,6 +50,7 @@ namespace ApiTrakingOfBl.Controllers
                     {
                         bl.BlTOken = token;
                        CadastrarTokenBl(bl);
+                        DetalheRastreio(token);
                     } 
                 }
             }
@@ -62,7 +63,14 @@ namespace ApiTrakingOfBl.Controllers
             if (bl == null) return BadRequest("Requisicao invalida");
             return Ok(_bLBusiness.CadastrarTokenBl(bl));
         }
-        
+        [HttpGet]
+        [Route("rastrear/detalhe")]
+        public IActionResult DetalheRastreio(string token)
+        {
+            if (token == null) return BadRequest("requisicao invalida");
+            var response = _bLBusiness.DetalheRastreio(token);
+            return Ok("Rastreamento Gravado!");
+        }
 
         
     }

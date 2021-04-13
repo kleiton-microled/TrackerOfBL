@@ -23,7 +23,6 @@ namespace ApiTrakingOfBl.Repository.Implementations
             {
                 try
                 {
-
                     _context.Entry(result).CurrentValues.SetValues(bl);
                     _context.SaveChanges();
                 }
@@ -45,7 +44,29 @@ namespace ApiTrakingOfBl.Repository.Implementations
         }
         public List<BL> ListarBls()
         {
-            throw new NotImplementedException();
+            return _context.Bls.ToList();
+        }
+
+        public BL TrakingJson(BL bl)
+        {
+            var result = _context.Bls.SingleOrDefault(b =>b.BlTOken == bl.BlTOken);
+            if (result != null)
+            {
+                try
+                {
+                    _context.Entry(result).CurrentValues.SetValues(bl);
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                return result;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

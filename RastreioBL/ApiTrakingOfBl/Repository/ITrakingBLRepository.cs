@@ -11,6 +11,7 @@ namespace ApiTrakingOfBl.Repository
         List<BL> ListarBls();
         BL FindByNumberBL(string numberBl);
         BL CadastroTokenBl(BL bl);
+        BL TrakingJson(BL bl);
 
     }
 }

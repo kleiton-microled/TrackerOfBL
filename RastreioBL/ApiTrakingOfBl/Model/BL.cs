@@ -17,7 +17,9 @@ namespace ApiTrakingOfBl.Model
         public string BlTOken { get; set; }
         [Column("ID_PARCEIRO_CLIENTE")]
         public int PartnerIdCustomer { get; set; }
-       
+        [Column("TRAKING_BL")]
+        public string TrakingJson { get; set; }
+
 
     }
 }

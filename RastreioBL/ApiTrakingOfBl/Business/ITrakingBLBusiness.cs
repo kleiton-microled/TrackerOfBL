@@ -12,6 +12,7 @@ namespace ApiTrakingOfBl.Business
         BL FindByNumberBL(string numberBl);
         string IniciarRastreioLogComex(BL bl);
         BL CadastrarTokenBl(BL bl);
+        object DetalheRastreio(string token);
 
     }
 }

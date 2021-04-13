@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ApiTrakingOfBl.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,5 +26,23 @@ namespace ApiTrakingOfBl.Business.Implementations
 
             return tokenGerado;
         }
+
+        public async Task<string> DetalheRastreio(string url, string apiKey, string token)
+        {
+            string tokenResponse = "";
+
+            //StringContent content = new StringContent(trakingRegister, Encoding.UTF8, "application/json");
+            var baseAddress = new Uri(url);
+
+            HttpClient cliente = new HttpClient();
+            cliente.DefaultRequestHeaders.TryAddWithoutValidation("x-api-key", apiKey);
+            var response = await cliente.GetAsync(baseAddress + "rastreamento/" + token);
+
+            string rastreio = await response.Content.ReadAsStringAsync();
+
+            return rastreio;
+        }
+
+        
     }
 }
