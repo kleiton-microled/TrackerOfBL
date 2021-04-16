@@ -13,7 +13,6 @@ namespace ApiTrakingOfBl.Model.Context
         {
             
         }
-
         public DbSet<BL> Bls { get; set; }
     }
 }

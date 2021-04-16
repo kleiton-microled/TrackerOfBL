@@ -1,0 +1,214 @@
+﻿@model Traking.Site.Models.BL
+<!-- Begin page -->
+<div id="wrapper">
+    @Html.Partial("topbar")
+    @Html.Partial("horizontal")
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Microled</a></li>
+                                    <li class="breadcrumb-item active">TrakingBL</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Traking BL</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+
+                    <div class="col-md-12 col-xl-12">
+                        <div class="card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-sm bg-soft-danger rounded">
+                                        <i class="fe-truck avatar-title font-22 text-danger"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-right">
+                                        <h3 class="text-dark my-1">@Model.BlNumber</h3>
+
+                                        <p class="text-muted mb-1 text-truncate">Bl pesquisada</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <h6 class="text-uppercase">Target <span class="float-right">100%</span></h6>
+                                <div class="progress progress-sm m-0">
+                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end card-box-->
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card card-body">
+                            <h4 class="card-title">TRANSPORTE E LOGISTICA</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h5>Pais Procedencia: </h5>
+                                    <p class="card-text"> Porto Embarque:</p>
+                                    <p class="card-text"> Porto Origem:  </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h5>Pais Destino: </h5>
+                                    <p class="card-text"> Porto Descarga:</p>
+                                    <p class="card-text"> Porto Porto Destino:  </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--ADUANA-->
+                        <div class="card card-body">
+                            <h4 class="card-title">ADUANA</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <article>
+                                        <p>CE:</p>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article>
+                                        <p>MANIFESTO:</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <!--ADUANA-->
+                        <div class="card card-body">
+                            <h4 class="card-title">MERCADORIA</h4>
+                            <div class="row">
+                                <div class="card-box col-12">
+                                    <h4 class="header-title">Totais/Volume</h4>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <th>VOLUME (M³): </th>
+                                                    <th>PESO BRUTO: </th>
+                                                    <th>TEUS: </th>
+                                                    <th>CNTR: </th>
+                                                    <th>TOTAL CNTR: </th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div> <!-- end card-box -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--PRINCIPAL-->
+                    <div class="col-lg-6">
+                        <div class="card card-body">
+                            <h4 class="card-title">PRINCIPAL</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <article>
+                                        <p>Status:</p>
+                                        <p>Bl:</p>
+                                        <p>Consignatario Informado:</p>
+                                        <p>Fluxo:</p>
+                                        <p>Navio:</p>
+                                        <p>Imo:</p>
+                                        <p>Conta:</p>
+                                        <p>Booking:</p>
+                                    </article>
+                                </div>
+                                <div class="col-lg-6">
+                                    <article>
+                                        <p>EMBARQUE:</p>
+                                        <p>TIPO:</p>
+                                        <p>TIPO CARGA:</p>
+                                        <p>DATA OPERACAO:</p>
+                                        <p>VIAGEM:</p>
+                                        <p>IDENTIFICADOR/TOKEN:</p>
+                                        <p>SITUAÇÃO:</p>
+                                        <p>ETA:</p>
+                                    </article>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- end row -->
+                <!--WORKFLOW-->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-3">WorkFlow</h4>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
+                                        <h5 class="mt-0">Numero BL: @Model.BlNumber</h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
+                                        <h5 class="mt-0">Token: @Model.BlToken</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="track-order-list">
+                                <ul class="list-unstyled">
+                                    <li class="completed">
+                                        <h5 class="mt-0 mb-1">Cadastro do Embarque</h5>
+                                        <p class="text-muted">21 Dezembro 2020  <small class="text-muted">07:22 AM</small> </p>
+                                    </li>
+                                    <li class="completed">
+                                        <h5 class="mt-0 mb-1">Manifestada</h5>
+                                        <p class="text-muted">21 Dezembro 2020 <small class="text-muted">12:16 AM</small></p>
+                                    </li>
+                                    <li>
+                                        <span class="active-dot dot"></span>
+                                        <h5 class="mt-0 mb-1">Operacao Realizada</h5>
+                                        <p class="text-muted">21 Dezembro 2020 <small class="text-muted">05:16 PM</small></p>
+                                    </li>
+                                    <li>
+                                        <h5 class="mt-0 mb-1"> Descarregada</h5>
+                                        <p class="text-muted">21 Dezembro 2020</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!-- END wrapper -->

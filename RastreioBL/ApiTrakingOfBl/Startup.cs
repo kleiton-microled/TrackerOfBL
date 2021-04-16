@@ -50,6 +50,11 @@ namespace ApiTrakingOfBl
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiTrakingOfBl", Version = "v1" });
             });
+
+            services.Configure<IISOptions>(o =>
+            {
+                o.ForwardClientCertificate = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +66,7 @@ namespace ApiTrakingOfBl
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiTrakingOfBl v1"));
             }
-
+            
             //app.UseHttpsRedirection();
 
             app.UseRouting();
